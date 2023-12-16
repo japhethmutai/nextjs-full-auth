@@ -1,7 +1,7 @@
 const Page = () => {
 	return (
 		<main>
-			<h1>Request Password Reset Page</h1>
+			<h1>Password Reset Token Page</h1>
 		</main>
 	)
 }
