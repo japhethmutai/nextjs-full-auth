@@ -1,5 +1,6 @@
 'use client';
 
+import Link from "next/link";
 import { ChangeEvent, useState } from "react";
 
 const Page = () => {
@@ -129,10 +130,10 @@ const Page = () => {
 				</form>
 
 				<p className="mt-10 text-center text-sm text-gray-500">
-					Not a member?{' '}
-					<a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-						Start a 14 day free trial
-					</a>
+					Already have an account?{' '}
+					<Link href="/auth/login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+						Login here
+					</Link>
 				</p>
 			</div>
 		</div>
