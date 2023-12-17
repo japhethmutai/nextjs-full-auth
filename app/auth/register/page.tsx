@@ -1,4 +1,23 @@
+'use client';
+
+import { ChangeEvent, useState } from "react";
+
 const Page = () => {
+	const [formData, setFormData] = useState({
+		first_name: '',
+		last_name: '',
+		email: '',
+		password: '',
+		re_password: '',
+	})
+
+	const { first_name, last_name, email, password, re_password } = formData;
+
+	const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+		const { name, value } = event.target;
+		setFormData({ ...formData, [name]: value })
+	}
+
 	return (
 		<div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
 			<div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -24,6 +43,8 @@ const Page = () => {
 								className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 								name="first_name"
 								type="text"
+								onChange={onChange}
+								value={first_name}
 								required
 							/>
 						</div>
@@ -39,6 +60,8 @@ const Page = () => {
 								className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 								name="last_name"
 								type="text"
+								onChange={onChange}
+								value={last_name}
 								required
 							/>
 						</div>
@@ -54,6 +77,8 @@ const Page = () => {
 								className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 								name="email"
 								type="email"
+								onChange={onChange}
+								value={email}
 								required
 							/>
 						</div>
@@ -69,6 +94,8 @@ const Page = () => {
 								className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 								name="password"
 								type="password"
+								onChange={onChange}
+								value={password}
 								required
 							/>
 						</div>
@@ -84,6 +111,8 @@ const Page = () => {
 								className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 								name="re_password"
 								type="password"
+								onChange={onChange}
+								value={re_password}
 								required
 							/>
 						</div>
