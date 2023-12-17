@@ -2,7 +2,7 @@
 
 import { useRegisterMutation } from "@/redux/features/authApiSlice";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { toast } from "react-toastify";
 import { Spinner } from "@/components/common";
