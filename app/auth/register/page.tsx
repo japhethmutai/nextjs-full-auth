@@ -3,6 +3,7 @@
 import { useRegisterMutation } from "@/redux/features/authApiSlice";
 import Link from "next/link";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { toast } from "react-toastify";
 
 const Page = () => {
 	const [register, { isLoading }] = useRegisterMutation();
@@ -28,10 +29,10 @@ const Page = () => {
 		register({ first_name, last_name, email, password, re_password })
 			.unwrap()
 			.then(() => {
-
+				toast.success('Please check email to verify account.')
 			})
 			.catch(() => {
-
+				toast.error('Failed to register account.')
 			})
 	}
 
