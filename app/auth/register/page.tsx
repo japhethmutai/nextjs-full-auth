@@ -1,9 +1,12 @@
 'use client';
 
+import { useRegisterMutation } from "@/redux/features/authApiSlice";
 import Link from "next/link";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 const Page = () => {
+	const [register, { isLoading }] = useRegisterMutation();
+
 	const [formData, setFormData] = useState({
 		first_name: '',
 		last_name: '',
@@ -17,6 +20,19 @@ const Page = () => {
 	const onChange = (event: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target;
 		setFormData({ ...formData, [name]: value })
+	}
+
+	const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+
+		register({ first_name, last_name, email, password, re_password })
+			.unwrap()
+			.then(() => {
+
+			})
+			.catch(() => {
+
+			})
 	}
 
 	return (
@@ -33,7 +49,7 @@ const Page = () => {
 			</div>
 
 			<div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-				<form className="space-y-6" action="#" method="POST">
+				<form className="space-y-6" onSubmit={onSubmit}>
 					<div>
 						<label htmlFor="first_name" className="block text-sm font-medium leading-6 text-gray-900">
 							First Name
