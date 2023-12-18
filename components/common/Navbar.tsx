@@ -3,8 +3,36 @@
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import { useLogoutMutation } from '@/redux/features/authApiSlice';
+import { logout as setLogout } from '@/redux/features/authSlice';
+import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
+    const dispatch = useAppDispatch();
+    const router = useRouter();
+    const { isAuthenticated } = useAppSelector(state => state.auth);
+    const [logout] = useLogoutMutation();
+
+    const handleLogout = () => {
+        logout(undefined)
+            .unwrap()
+            .then(() => {
+                dispatch(setLogout());
+            })
+            .finally(() => {
+                router.push('/');
+            })
+    }
+
+    const authLinks = (
+        <div>AUTH LINKS</div>
+    )
+
+    const guestLinks = (
+        <div>GUEST LINKS</div>
+    )
+
     return (
         <Disclosure as="nav" className="bg-gray-800">
             {({ open }) => (
@@ -28,12 +56,17 @@ export default function Navbar() {
                                     Maxicom
                                 </Link>
                             </div>
+                            <div className="hidden sm:ml-6 sm:block">
+                                <div className="flex space-x-4">
+                                    { isAuthenticated ? authLinks : guestLinks }
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <Disclosure.Panel className="sm:hidden">
                         <div className="space-y-1 px-2 pb-3 pt-2">
-
+                            { isAuthenticated ? authLinks : guestLinks }
                         </div>
                     </Disclosure.Panel>
                 </>

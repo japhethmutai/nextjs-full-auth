@@ -2,9 +2,12 @@ import { useLoginMutation } from "@/redux/features/authApiSlice";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { toast } from "react-toastify";
+import { setAuth } from "@/redux/features/authSlice";
+import { useAppDispatch } from "@/redux/hooks";
 
 export default function useLogin() {
     const router = useRouter();
+	const dispatch = useAppDispatch();
 	const [login, { isLoading }] = useLoginMutation();
 
 	const [formData, setFormData] = useState({
@@ -25,6 +28,7 @@ export default function useLogin() {
 		login({ email, password })
 			.unwrap()
 			.then(() => {
+				dispatch(setAuth());
 				toast.success('Logged in.');
 				router.push('/dashboard')
 			})
