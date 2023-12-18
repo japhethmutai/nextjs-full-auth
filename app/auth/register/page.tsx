@@ -1,5 +1,11 @@
 import { RegisterForm } from "@/components/forms";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: 'Maxicom | Register',
+	description: 'Maxicom IT Consultancy register page'
+}
 
 const Page = () => {
 	return (
