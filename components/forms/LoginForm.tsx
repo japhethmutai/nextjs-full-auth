@@ -25,6 +25,10 @@ const LoginForm = () => {
 			labelId: 'password',
 			type: 'password',
 			value: password,
+			link: {
+				linkText: 'Forgot password?',
+				linkUrl: '/password-reset',
+			},
 			required: true
 		},
 	]
