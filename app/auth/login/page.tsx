@@ -1,4 +1,4 @@
-import { RegisterForm } from "@/components/forms";
+import { LoginForm } from "@/components/forms";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -22,7 +22,7 @@ const Page = () => {
 			</div>
 
 			<div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-				<RegisterForm />
+				<LoginForm />
 
 				<p className="mt-10 text-center text-sm text-gray-500">
 					Don&apos;t have an account?{' '}
