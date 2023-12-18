@@ -25,7 +25,7 @@ export default function useLogin() {
 		login({ email, password })
 			.unwrap()
 			.then(() => {
-				toast.success('Login successful.');
+				toast.success('Logged in.');
 				router.push('/dashboard')
 			})
 			.catch(() => {
