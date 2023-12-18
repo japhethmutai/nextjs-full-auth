@@ -1,6 +1,6 @@
 'use client';
 
-import { useRegister } from "@/hooks";
+import { useLogin } from "@/hooks";
 import { Form } from '@/components/forms';
 
 const LoginForm = () => {
@@ -10,7 +10,7 @@ const LoginForm = () => {
         isLoading,
         onChange,
         onSubmit
-	} = useRegister();
+	} = useLogin();
 
 	const config = [
 		{

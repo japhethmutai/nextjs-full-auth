@@ -25,11 +25,11 @@ export default function useLogin() {
 		login({ email, password })
 			.unwrap()
 			.then(() => {
-				toast.success('Please check email to verify account.');
-				router.push('/auth/login')
+				toast.success('Login successful.');
+				router.push('/dashboard')
 			})
 			.catch(() => {
-				toast.error('Failed to register account.')
+				toast.error('Failed to login to your account.')
 			})
 	}
 
