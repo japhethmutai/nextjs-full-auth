@@ -26,7 +26,7 @@ const Form = ({ config, isLoading, btnText, onChange, onSubmit }: Props) => {
 					<Input
 						key={index}
 						labelId={input.labelId}
-						type={input.labelId}
+						type={input.type}
 						onChange={onChange}
 						value={input.value}
 					>
