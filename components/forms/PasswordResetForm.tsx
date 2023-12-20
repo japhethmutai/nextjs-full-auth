@@ -1,10 +1,10 @@
 'use client';
 
-import { useResetPassword } from '@/hooks';
+import { usePasswordReset } from '@/hooks';
 import { Form } from '@/components/forms';
 
 const PasswordResetForm = () => {
-    const { email, isLoading, onChange, onSubmit } = useResetPassword();
+    const { email, isLoading, onChange, onSubmit } = usePasswordReset();
 
 	const config = [
 		{
