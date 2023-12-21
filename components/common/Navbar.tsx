@@ -1,17 +1,15 @@
 'use client';
 
 import { Disclosure } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Link from 'next/link'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { useLogoutMutation } from '@/redux/features/authApiSlice';
 import { logout as setLogout } from '@/redux/features/authSlice';
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { NavLink } from '@/components/common'
 
 export default function Navbar() {
     const dispatch = useAppDispatch();
-    const router = useRouter();
     const pathname = usePathname();
     const { isAuthenticated } = useAppSelector(state => state.auth);
     const [logout] = useLogoutMutation();
