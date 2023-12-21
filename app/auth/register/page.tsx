@@ -1,5 +1,6 @@
 import { RegisterForm } from "@/components/forms";
 import Link from "next/link";
+import { SocialButtons } from '@/components/common';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ const Page = () => {
 
 			<div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
 				<RegisterForm />
+				<SocialButtons />
 
 				<p className="mt-10 text-center text-sm text-gray-500">
 					Already have an account?{' '}
