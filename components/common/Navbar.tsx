@@ -22,9 +22,6 @@ export default function Navbar() {
             .then(() => {
                 dispatch(setLogout());
             })
-            .finally(() => {
-                router.push('/');
-            })
     }
 
     const isSelected = (path: string) => pathname === path ? true : false;
